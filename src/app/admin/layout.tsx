@@ -37,6 +37,7 @@ import {
     Youtube,
     Menu,
     MessageCircleQuestion, // Added for FAQ
+    Trash2,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
@@ -124,6 +125,7 @@ export default function AdminLayout({
         },
         { href: '/admin/contact', label: 'Kontak', icon: Phone },
         { href: '/admin/faq', label: 'FAQ', icon: MessageCircleQuestion },
+        { href: '/admin/suspendik', label: 'Bank Sampah', icon: Trash2 },
     ];
 
     const [collapsibleOpenStates, setCollapsibleOpenStates] = React.useState<

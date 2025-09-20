@@ -37,6 +37,7 @@ import {
     ShieldCheck,
     Megaphone,
     Video,
+    Trash2,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
@@ -93,6 +94,7 @@ export default function Header({ contactInfo }: HeaderProps) {
             subLinks: [
                 { href: '/news', label: 'Berita', icon: Newspaper },
                 { href: '/pengumuman', label: 'Pengumuman', icon: Megaphone },
+                { href: '/publikasi/suspendik', label: 'Bank Sampah', icon: Trash2 },
             ],
         },
         { href: '/achievements', label: 'Prestasi', icon: Trophy },
