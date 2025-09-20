@@ -108,6 +108,7 @@ export default function AdminLayout({
             subItems: [
                 { href: '/admin/news', label: 'Berita' },
                 { href: '/admin/announcements', label: 'Pengumuman' },
+                { href: '/admin/suspendik', label: 'Bank Sampah' },
             ],
         },
         { href: '/admin/achievements', label: 'Prestasi', icon: Trophy },
@@ -125,7 +126,6 @@ export default function AdminLayout({
         },
         { href: '/admin/contact', label: 'Kontak', icon: Phone },
         { href: '/admin/faq', label: 'FAQ', icon: MessageCircleQuestion },
-        { href: '/admin/suspendik', label: 'Bank Sampah', icon: Trash2 },
     ];
 
     const [collapsibleOpenStates, setCollapsibleOpenStates] = React.useState<

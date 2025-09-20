@@ -101,66 +101,62 @@ export default function SuspendikPage() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-8 lg:grid-cols-5">
-        <div className="lg:col-span-3">
-          <Card>
-            <CardHeader>
-              <CardTitle>Total Sampah per Jenis</CardTitle>
-              <CardDescription>{`Data untuk ${selectedMonth} ${selectedYear}`}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={400}>
-                {chartData.length > 0 ? (
-                  <BarChart data={chartData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} interval={0} fontSize={12} />
-                    <YAxis />
-                    <Tooltip formatter={(value: number) => `${value} kg`} />
-                    <Legend />
-                    <Bar dataKey="total" fill="#3b82f6" name="Total Sampah (kg)" />
-                  </BarChart>
-                ) : (
-                  <div className="flex items-center justify-center h-full text-gray-500">Tidak ada data untuk ditampilkan.</div>
-                )}
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-        </div>
+      <div className="flex flex-col gap-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>Total Sampah per Jenis</CardTitle>
+            <CardDescription>{`Data untuk ${selectedMonth} ${selectedYear}`}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={400}>
+              {chartData.length > 0 ? (
+                <BarChart data={chartData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} interval={0} fontSize={12} />
+                  <YAxis />
+                  <Tooltip formatter={(value: number) => `${value} kg`} />
+                  <Legend />
+                  <Bar dataKey="total" fill="#3b82f6" name="Total Sampah (kg)" />
+                </BarChart>
+              ) : (
+                <div className="flex items-center justify-center h-full text-gray-500">Tidak ada data untuk ditampilkan.</div>
+              )}
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
 
-        <div className="lg:col-span-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Peringkat Kelas</CardTitle>
-              <CardDescription>{`Berdasarkan total sampah terkumpul (${selectedMonth} ${selectedYear})`}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-[80px]">Peringkat</TableHead>
-                    <TableHead>Kelas</TableHead>
-                    <TableHead className="text-right">Total (kg)</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {classRanking.length > 0 ? (
-                    classRanking.map(item => (
-                      <TableRow key={item.rank}>
-                        <TableCell className="font-medium text-center">{item.rank}</TableCell>
-                        <TableCell>{item.class}</TableCell>
-                        <TableCell className="text-right">{item.total.toLocaleString()}</TableCell>
-                      </TableRow>
-                    ))
-                  ) : (
-                    <TableRow>
-                      <TableCell colSpan={3} className="text-center">Tidak ada data peringkat.</TableCell>
+        <Card>
+          <CardHeader>
+            <CardTitle>Peringkat Kelas</CardTitle>
+            <CardDescription>{`Berdasarkan total sampah terkumpul (${selectedMonth} ${selectedYear})`}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[80px]">Peringkat</TableHead>
+                  <TableHead>Kelas</TableHead>
+                  <TableHead className="text-right">Total (kg)</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {classRanking.length > 0 ? (
+                  classRanking.map(item => (
+                    <TableRow key={item.rank}>
+                      <TableCell className="font-medium text-center">{item.rank}</TableCell>
+                      <TableCell>{item.class}</TableCell>
+                      <TableCell className="text-right">{item.total.toLocaleString()}</TableCell>
                     </TableRow>
-                  )}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
-        </div>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={3} className="text-center">Tidak ada data peringkat.</TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

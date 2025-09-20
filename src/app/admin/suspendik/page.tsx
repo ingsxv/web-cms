@@ -174,9 +174,32 @@ export default function AdminSuspendikPage() {
           {entries.length > 0 && (
             <div className="pt-6">
               <h3 className="text-lg font-medium mb-2">Data yang Akan Disimpan</h3>
-              <div className="rounded-md border">
-                <pre className="p-4 text-sm overflow-x-auto">{JSON.stringify(entries, null, 2)}</pre>
-              </div>
+              <Card>
+                <CardContent className="p-0">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Kelas</TableHead>
+                        <TableHead>Jenis Sampah</TableHead>
+                        <TableHead>Jumlah (kg)</TableHead>
+                        <TableHead>Bulan</TableHead>
+                        <TableHead>Tahun</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {entries.map((entry, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{entry.class}</TableCell>
+                          <TableCell>{entry.wasteType}</TableCell>
+                          <TableCell>{entry.amount}</TableCell>
+                          <TableCell>{entry.month}</TableCell>
+                          <TableCell>{entry.year}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
             </div>
           )}
         </CardContent>
